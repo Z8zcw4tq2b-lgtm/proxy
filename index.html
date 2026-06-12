@@ -2,72 +2,28 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>裤佬GitHub加速</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>裤佬代理加速</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
-        .marquee-ad {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            color: white;
-            padding: 8px 0;
-            text-align: center;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .marquee-ad a {
-            background: linear-gradient(90deg, #f72585, #4361ee, #4cc9f0);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-            display: inline-block;
-            padding-left: 100%;
-            animation: marquee 15s linear infinite;
-            white-space: nowrap;
-        }
-        
-        .marquee-ad a:hover {
-            text-decoration: underline;
-        }
-        
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-        
+
         body {
+            font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 20px;
-            overflow-x: hidden;
+            background: #0a0a14;
+            color: #ffffff;
             position: relative;
-            color: #fff;
-            padding-top: 40px;
+            overflow-x: hidden;
         }
-        
+
         #video-background {
             position: fixed;
             top: 0;
@@ -76,566 +32,514 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
+            opacity: 0.55;
+            pointer-events: none;
         }
-        
+
         .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: radial-gradient(ellipse at 30% 20%, rgba(46, 91, 255, 0.18) 0%, rgba(10, 10, 20, 0.7) 70%);
             z-index: -1;
+            pointer-events: none;
         }
-        
-        .container {
-            max-width: 500px;
+
+        .marquee-ad {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.5s ease;
-            transform: translateY(0);
+            background: rgba(15, 15, 25, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 10px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            overflow: hidden;
         }
-        
-        .container:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            background: rgba(255, 255, 255, 0.15);
+
+        .marquee-ad a {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 18s linear infinite;
+            white-space: nowrap;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.3px;
+            background: linear-gradient(135deg, #FF6B9D, #C44DFF, #4D7CFF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-decoration: none;
         }
-        
-        h1 {
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .main-card {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(18, 18, 32, 0.6);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 32px;
+            padding: 32px 28px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .main-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 35px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.25);
+        }
+
+        .brand {
             text-align: center;
-            margin-bottom: 25px;
-            color: #4cc9f0;
-            font-size: 1.8rem;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 8px;
         }
-        
-        .input-group {
+
+        .brand h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(180deg, #FFFFFF 0%, #B0C6FF 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: rgba(210, 210, 255, 0.85);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 6px 18px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .input-field {
+            margin-bottom: 22px;
+        }
+
+        .label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #c9d3ff;
+            margin-bottom: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        .input-wrapper {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrapper:focus-within {
+            background: rgba(255, 255, 255, 0.14);
+            border-color: rgba(92, 156, 255, 0.7);
+            box-shadow: 0 0 0 3px rgba(76, 130, 245, 0.25);
+        }
+
+        input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 14px 16px;
+            font-size: 0.95rem;
+            color: #fff;
+            outline: none;
+            border-radius: 16px;
+            font-weight: 400;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.45);
+            font-weight: 400;
+        }
+
+        .proxy-section {
             margin-bottom: 20px;
         }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #e0e0e0;
-            font-size: 0.9rem;
-        }
-        
-        input, select {
+
+        .proxy-scroll {
             width: 100%;
-            padding: 10px 12px;
-            border: none;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.15);
-            color: #fff;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        input:focus, select:focus {
-            outline: none;
-            background: rgba(255, 255, 255, 0.25);
-            box-shadow: 0 0 0 2px rgba(76, 201, 240, 0.5);
-        }
-        
-        .proxy-scroll-container {
-            position: relative;
-            width: 100%;
-            height: 100px;
-            margin-bottom: 15px;
-        }
-        
-        .proxy-scroll-wrapper {
-            width: 100%;
-            height: 100%;
             overflow-x: auto;
             overflow-y: hidden;
             white-space: nowrap;
-            padding: 10px 5px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 2px 10px;
             scrollbar-width: thin;
-            scrollbar-color: rgba(76, 201, 240, 0.6) rgba(255, 255, 255, 0.1);
+            scrollbar-color: rgba(92, 156, 255, 0.6) rgba(255,255,255,0.08);
         }
-        
-        .proxy-scroll-wrapper::-webkit-scrollbar {
-            height: 6px;
+
+        .proxy-scroll::-webkit-scrollbar {
+            height: 5px;
         }
-        
-        .proxy-scroll-wrapper::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
+
+        .proxy-scroll::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
         }
-        
-        .proxy-scroll-wrapper::-webkit-scrollbar-thumb {
-            background: rgba(76, 201, 240, 0.6);
-            border-radius: 4px;
+
+        .proxy-scroll::-webkit-scrollbar-thumb {
+            background: rgba(92, 156, 255, 0.7);
+            border-radius: 10px;
         }
-        
-        .proxy-scroll-wrapper::-webkit-scrollbar-thumb:hover {
-            background: rgba(76, 201, 240, 0.8);
-        }
-        
-        .proxy-item {
-            display: inline-block;
-            width: 120px;
-            height: 70px;
-            margin: 0 8px;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            text-align: center;
+
+        .proxy-chip {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 110px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            border-radius: 18px;
+            margin-right: 10px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            border: 1.5px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.2s ease;
+            vertical-align: middle;
             position: relative;
-            overflow: hidden;
         }
-        
-        .proxy-item:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-3px);
+
+        .proxy-chip.active {
+            background: rgba(76, 130, 245, 0.25);
+            border-color: #5C9CFF;
+            box-shadow: 0 8px 20px rgba(46, 91, 255, 0.4);
+            transform: scale(1.02);
         }
-        
-        .proxy-item.selected {
-            background: rgba(76, 201, 240, 0.2);
-            border-color: rgba(76, 201, 240, 0.8);
-            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.3);
-        }
-        
-        .proxy-item.selected::after {
+
+        .proxy-chip.active::after {
             content: "✓";
             position: absolute;
-            top: 5px;
-            right: 5px;
-            width: 18px;
-            height: 18px;
-            background: rgba(76, 201, 240, 0.9);
+            top: 8px;
+            right: 8px;
+            background: #5C9CFF;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
             font-size: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        
-        .proxy-name {
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: #e0e0e0;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-        
-        .proxy-url {
-            font-size: 10px;
-            color: rgba(255, 255, 255, 0.7);
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-        
-        button {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 7px 20px rgba(76, 201, 240, 0.4);
-        }
-        
-        .result {
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
-            display: none;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .result-title {
-            margin-bottom: 8px;
-            color: #4cc9f0;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        
-        .result-link {
-            word-break: break-all;
-            padding: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            margin-bottom: 12px;
-            font-size: 0.85rem;
-        }
-        
-        .copy-btn {
-            background: linear-gradient(135deg, #f72585 0%, #7209b7 100%);
-            width: auto;
-            padding: 6px 12px;
-            margin-top: 8px;
-            font-size: 0.85rem;
-        }
-        
-        .example {
-            margin-top: 8px;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .music-control {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 100;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .music-control:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: scale(1.1);
-        }
-        
-        .music-control i {
             color: #fff;
+            font-weight: bold;
+        }
+
+        .chip-name {
+            font-weight: 650;
+            font-size: 0.85rem;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .chip-domain {
+            font-size: 0.65rem;
+            color: rgba(220, 220, 255, 0.7);
+            max-width: 90px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .generate-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #1E3FBF, #3A6FFF);
+            border: none;
+            padding: 15px;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 10px 25px rgba(30, 63, 191, 0.45);
+            letter-spacing: 0.4px;
+            margin-top: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .generate-btn:hover {
+            background: linear-gradient(135deg, #254EDB, #4B80FF);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(58, 111, 255, 0.6);
+        }
+
+        .result-panel {
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(20px);
+            border-radius: 18px;
+            padding: 18px;
+            display: none;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .result-link-box {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 12px;
+            border-radius: 12px;
+            word-break: break-all;
+            font-size: 0.9rem;
+            margin: 12px 0 14px;
+            color: #e0e7ff;
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.22);
+        }
+
+        .audio-trigger {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 48px;
+            height: 48px;
+            background: rgba(20, 20, 35, 0.7);
+            backdrop-filter: blur(18px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.25);
+            color: white;
             font-size: 20px;
+            z-index: 100;
+            transition: 0.2s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
         }
-        
-        .music-control.playing .play-icon {
-            display: none;
+
+        .audio-trigger:hover {
+            background: rgba(45, 45, 70, 0.8);
+            transform: scale(1.06);
         }
-        
-        .music-control .pause-icon {
-            display: none;
-        }
-        
-        .music-control.playing .pause-icon {
-            display: block;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
+
+        .pause-icon { display: none; }
+        .audio-trigger.playing .play-icon { display: none; }
+        .audio-trigger.playing .pause-icon { display: inline; }
+
+        @media (max-width: 500px) {
+            .main-card {
+                padding: 24px 18px;
             }
-            
-            h1 {
-                font-size: 1.6rem;
+            .brand h1 {
+                font-size: 1.9rem;
             }
-            
-            .container:hover {
-                transform: translateY(-5px);
-            }
-            
-            .proxy-scroll-container {
-                height: 90px;
-            }
-            
-            .proxy-item {
-                width: 110px;
-                height: 65px;
-            }
-            
-            .music-control {
-                bottom: 15px;
-                right: 15px;
-                width: 45px;
-                height: 45px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-            
-            .container {
-                padding: 15px;
-            }
-            
-            h1 {
-                font-size: 1.4rem;
-            }
-            
-            .proxy-scroll-container {
-                height: 80px;
-            }
-            
-            .proxy-item {
+            .proxy-chip {
                 width: 100px;
-                height: 60px;
-            }
-            
-            input, select, .select-trigger {
-                padding: 8px 10px;
-            }
-            
-            .music-control {
-                bottom: 10px;
-                right: 10px;
-                width: 40px;
-                height: 40px;
-            }
-            
-            .music-control i {
-                font-size: 18px;
+                height: 72px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="marquee-ad">
-        <a href="https://kelayun.notepin.co" target="_blank">最低2元1000G机场推荐/解锁奈飞.TikTok.ChatGPT/不限速不限设备</a>
-    </div>
-    
     <video id="video-background" autoplay muted loop playsinline>
-        <source src="https://txmov2.a.kwimgs.com/upic/2023/10/13/16/BMjAyMzEwMTMxNjU4MTJfMTcyNTc4NzU4N18xMTQ4OTQ2OTgxMzRfMl8z_b_B209e890a596d64fbd174507b758b0815.mp4">
+        <source src="https://txmov2.a.kwimgs.com/upic/2023/10/13/16/BMjAyMzEwMTMxNjU4MTJfMTcyNTc4NzU4N18xMTQ4OTQ2OTgxMzRfMl8z_b_B209e890a596d64fbd174507b758b0815.mp4" type="video/mp4">
     </video>
-    
-    <audio id="background-music" loop>
+    <div class="overlay"></div>
+
+    <div class="marquee-ad">
+        <a href="https://kelayun.notepin.co" target="_blank">最低2元1000G机场推荐 · 解锁奈飞/TikTok/ChatGPT · 不限速不限设备</a>
+    </div>
+
+    <audio id="bg-music" loop preload="auto">
         <source src="https://mpimg.cn/view.php/95ebd4e920272dca3eb4fa3cab47513d.mp3" type="audio/mpeg">
     </audio>
-    
-    <div class="overlay"></div>
-    
-    <div class="container">
-        <h1>裤佬GitHub加速</h1>
-        
-        <div class="input-group">
-            <label for="github-url">GitHub原始链接</label>
-            <input type="text" id="github-url" placeholder="例如: https://raw.githubusercontent.com/user/repo/branch/file">
+
+    <main class="main-card">
+        <div class="brand">
+            <h1>裤佬代理加速</h1>
+            <div class="subtitle">不局限于github，支持任何被墙的网站代理加速</div>
         </div>
-        
-        <div class="input-group">
-            <label>选择代理站点↔️</label>
-            <div class="proxy-scroll-container">
-                <div class="proxy-scroll-wrapper" id="proxy-scroll-wrapper">
-                </div>
+
+        <div class="input-field">
+            <div class="label">
+                <span>🔗 被墙网址</span>
+            </div>
+            <div class="input-wrapper">
+                <input type="text" id="sourceUrl" placeholder="https://raw.githubusercontent.com/...">
             </div>
         </div>
-        
-        <button id="generate-btn">生成加速链接</button>
-        
-        <div class="result" id="result">
-            <div class="result-title">生成的加速链接:</div>
-            <div class="result-link" id="result-link"></div>
-            <button class="copy-btn" id="copy-btn">复制链接</button>
+
+        <div class="proxy-section">
+            <div class="label">
+                <span>⚡ 代理站点</span>
+            </div>
+            <div class="proxy-scroll" id="proxyContainer"></div>
         </div>
-    </div>
-    
-    <div class="music-control playing" id="music-control">
-        <i class="play-icon">♪</i>
-        <i class="pause-icon">❚❚</i>
+
+        <button class="generate-btn" id="generateBtn">生成加速链接</button>
+
+        <div class="result-panel" id="resultPanel">
+            <div style="font-weight: 600; color: #b4c8ff; margin-bottom: 6px;">🚀 加速链接</div>
+            <div class="result-link-box" id="resultLink"></div>
+            <button class="copy-btn" id="copyBtn">
+                <span>📋</span> 复制链接
+            </button>
+        </div>
+    </main>
+
+    <div class="audio-trigger playing" id="audioToggle">
+        <span class="play-icon">♪</span>
+        <span class="pause-icon">❚❚</span>
     </div>
 
     <script>
-        var _hmt = _hmt || [];
         (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?6e2044e00ef741154b6000d7edf421b8";
-          var s = document.getElementsByTagName("script")[0]; 
-          s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
+            const proxyList = [
+                { name: "seep", url: "https://seep.eu.org/" },
+                { name: "030101", url: "https://proxy.api.030101.xyz/" },
+                { name: "kuayu", url: "https://kuayu.hellow.eu.org/" },
+                { name: "hellow", url: "https://hellow.eu.org/" },
+                { name: "workers", url: "https://restless-rice-b2a2.ganpig.workers.dev/cfdownload/" },
+                { name: "nigx", url: "https://down.nigx.cn/" }
+            ];
 
-    <script>
-        const proxySites = [
-            { name: "gh-proxy", url: "https://gh-proxy.org" },
-            { name: "v6.gh-proxy", url: "https://v6.gh-proxy.org" },
-            { name: "hk.gh-proxy", url: "https://hk.gh-proxy.org" },
-            { name: "cdn.gh-proxy", url: "https://cdn.gh-proxy.org" },
-            { name: "edgeone.gh-proxy", url: "https://edgeone.gh-proxy.org" },
-            { name: "ghfile", url: "https://ghfile.geekertao.top" },
-            { name: "gh.llkk", url: "https://gh.llkk.cc" },
-            { name: "proxy.frp", url: "https://proxy.frp.gs" },
-            { name: "daili.korice", url: "https://daili.korice.eu.org" },
-            { name: "全网代理加速", url: "https://proxy.api.030101.xyz" }
-        ];
+            let activeProxy = proxyList[0];
+            const container = document.getElementById('proxyContainer');
+            const sourceInput = document.getElementById('sourceUrl');
+            const generateBtn = document.getElementById('generateBtn');
+            const resultPanel = document.getElementById('resultPanel');
+            const resultLinkEl = document.getElementById('resultLink');
+            const copyBtn = document.getElementById('copyBtn');
 
-        const proxyScrollWrapper = document.getElementById('proxy-scroll-wrapper');
-        let selectedProxy = proxySites[0];
-        
-        proxySites.forEach(site => {
-            const proxyItem = document.createElement('div');
-            proxyItem.className = 'proxy-item';
-            if (site.name === selectedProxy.name) proxyItem.classList.add('selected');
-            
-            proxyItem.innerHTML = `
-                <div class="proxy-name">${site.name}</div>
-                <div class="proxy-url">${site.url.replace('https://', '')}</div>
-            `;
-            
-            proxyItem.addEventListener('click', function() {
-                selectedProxy = site;
-                
-                document.querySelectorAll('.proxy-item').forEach(item => {
-                    item.classList.remove('selected');
-                });
-                this.classList.add('selected');
-                
-                this.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            });
-            
-            proxyScrollWrapper.appendChild(proxyItem);
-        });
-
-        document.getElementById('generate-btn').addEventListener('click', function() {
-            let githubUrl = document.getElementById('github-url').value.trim();
-            
-            if (!githubUrl) {
-                alert('请输入GitHub链接');
-                return;
-            }
-            
-            let acceleratedUrl;
-            if (selectedProxy.url === 'https://proxy.api.030101.xyz') {
-                let cleanUrl = githubUrl.replace(/^https?:\/\//i, '');
-                acceleratedUrl = selectedProxy.url + '/' + cleanUrl;
-            } else {
-                acceleratedUrl = selectedProxy.url + '/' + githubUrl;
-            }
-            
-            document.getElementById('result-link').textContent = acceleratedUrl;
-            document.getElementById('result').style.display = 'block';
-        });
-
-        document.getElementById('copy-btn').addEventListener('click', function() {
-            const resultLink = document.getElementById('result-link').textContent;
-            
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(resultLink)
-                    .then(() => {
-                        const originalText = this.textContent;
-                        this.textContent = '已复制!';
-                        setTimeout(() => {
-                            this.textContent = originalText;
-                        }, 2000);
-                    })
-                    .catch(err => {
-                        console.error('复制失败: ', err);
-                        alert('复制失败，请手动复制链接');
+            function renderProxies() {
+                container.innerHTML = '';
+                proxyList.forEach((proxy, idx) => {
+                    const chip = document.createElement('div');
+                    chip.className = `proxy-chip ${idx === 0 ? 'active' : ''}`;
+                    const domain = proxy.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+                    chip.innerHTML = `<div class="chip-name">${proxy.name}</div><div class="chip-domain">${domain}</div>`;
+                    
+                    chip.addEventListener('click', () => {
+                        document.querySelectorAll('.proxy-chip').forEach(c => c.classList.remove('active'));
+                        chip.classList.add('active');
+                        activeProxy = proxy;
+                        chip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                     });
-            } else {
-                const textArea = document.createElement('textarea');
-                textArea.value = resultLink;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-                
-                const originalText = this.textContent;
-                this.textContent = '已复制!';
-                setTimeout(() => {
-                    this.textContent = originalText;
-                }, 2000);
-            }
-        });
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const video = document.getElementById('video-background');
-            
-            const playPromise = video.play();
-            
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    console.log('视频自动播放成功');
-                }).catch(error => {
-                    console.log('视频自动播放失败:', error);
+                    container.appendChild(chip);
                 });
             }
-        });
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const music = document.getElementById('background-music');
-            const musicControl = document.getElementById('music-control');
-            
-            music.volume = 0.5;
-            music.muted = false;
-            
-            function forcePlayMusic() {
-                const playPromise = music.play();
-                
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        musicControl.classList.add('playing');
-                        console.log('音乐播放成功');
-                    }).catch(error => {
-                        console.log('直接播放失败，尝试静音播放策略:', error);
-                        
-                        music.muted = true;
-                        const mutedPlayPromise = music.play();
-                        
-                        if (mutedPlayPromise !== undefined) {
-                            mutedPlayPromise.then(() => {
-                                music.muted = false;
-                                musicControl.classList.add('playing');
-                                console.log('静音播放成功，已取消静音');
-                            }).catch(mutedError => {
-                                console.log('静音播放也失败:', mutedError);
-                            });
-                        }
+
+            function buildAcceleratedUrl(original) {
+                const base = activeProxy.url;
+                if (base === 'https://down.nigx.cn/') {
+                    return base + original.replace(/^https?:\/\//, '');
+                }
+                return base + original;
+            }
+
+            generateBtn.addEventListener('click', () => {
+                const rawUrl = sourceInput.value.trim();
+                if (!rawUrl) {
+                    alert('请输入需要加速的链接');
+                    return;
+                }
+                const accelerated = buildAcceleratedUrl(rawUrl);
+                resultLinkEl.textContent = accelerated;
+                resultPanel.style.display = 'block';
+            });
+
+            copyBtn.addEventListener('click', () => {
+                const text = resultLinkEl.textContent;
+                navigator.clipboard?.writeText(text).then(() => {
+                    copyBtn.innerHTML = '<span>✅</span> 已复制';
+                    setTimeout(() => { copyBtn.innerHTML = '<span>📋</span> 复制链接'; }, 2000);
+                }).catch(() => {
+                    const ta = document.createElement('textarea');
+                    ta.value = text;
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                    copyBtn.innerHTML = '<span>✅</span> 已复制';
+                    setTimeout(() => { copyBtn.innerHTML = '<span>📋</span> 复制链接'; }, 2000);
+                });
+            });
+
+            renderProxies();
+
+            const bgMusic = document.getElementById('bg-music');
+            const audioToggle = document.getElementById('audioToggle');
+            bgMusic.volume = 0.4;
+
+            function tryPlay() {
+                const promise = bgMusic.play();
+                if (promise !== undefined) {
+                    promise.then(() => audioToggle.classList.add('playing'))
+                    .catch(() => {
+                        bgMusic.muted = true;
+                        bgMusic.play().then(() => {
+                            bgMusic.muted = false;
+                            audioToggle.classList.add('playing');
+                        }).catch(() => {});
                     });
                 }
             }
-            
-            forcePlayMusic();
-            
-            let userInteracted = false;
-            document.addEventListener('click', function() {
-                if (!userInteracted) {
-                    userInteracted = true;
-                    console.log('用户已与页面交互，再次尝试播放音乐');
-                    forcePlayMusic();
-                }
-            });
-            
-            musicControl.addEventListener('click', function() {
-                if (music.paused) {
-                    forcePlayMusic();
+
+            tryPlay();
+
+            document.addEventListener('click', function userGesturePlay() {
+                if (bgMusic.paused) tryPlay();
+            }, { once: false });
+
+            audioToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (bgMusic.paused) {
+                    tryPlay();
                 } else {
-                    music.pause();
-                    musicControl.classList.remove('playing');
+                    bgMusic.pause();
+                    audioToggle.classList.remove('playing');
                 }
             });
-            
-            document.addEventListener('keydown', function(e) {
-                if (e.code === 'Space' && !e.target.matches('input, textarea')) {
+
+            document.addEventListener('keydown', (e) => {
+                if (e.code === 'Space' && document.activeElement !== sourceInput) {
                     e.preventDefault();
-                    musicControl.click();
+                    audioToggle.click();
                 }
             });
-        });
+
+            const video = document.getElementById('video-background');
+            video.play().catch(() => {});
+        })();
     </script>
 </body>
 </html>
